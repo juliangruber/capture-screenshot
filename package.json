@@ -1,0 +1,20 @@
+{
+  "name" : "url-to-screenshot",
+  "description" : "Capture screenshots using phantomjs",
+  "version" : "0.0.0",
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/re-view/url-to-screenshot.git"
+  },
+  "homepage": "https://github.com/re-view/url-to-screenshot",
+  "main" : "index.js",
+  "dependencies" : {},
+  "devDependencies" : {},
+  "keywords": ["phantomjs", "screenshot", "headless"],
+  "author": {
+    "name": "Julian Gruber",
+    "email": "mail@juliangruber.com",
+    "url": "http://juliangruber.com"
+  },
+  "license": "MIT"
+}
