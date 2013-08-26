@@ -43,6 +43,11 @@ page.onError = noop;
 page.open(url, function (status) {
   if (status !== 'success') throw new Error('Unable to load');
   window.setTimeout(function () {
+    page.evaluate(function() {
+      if (!document.body.style.background) {
+        document.body.style.backgroundColor = 'white';
+      }
+    });
     console.log(page.renderBase64(format));
     phantom.exit();
   }, timeout);

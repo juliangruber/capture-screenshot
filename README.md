@@ -70,6 +70,9 @@ containing the image.
 
 If no `fn` is provided, a thunk/continuable is returned.
 
+If the page has a transparent background, it will be set to `white` before
+capturing.
+
 ## Installation
 
 Make sure you have a working installation of 

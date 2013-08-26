@@ -1,7 +1,7 @@
 var screenshot = require('./');
 var fs = require('fs');
 
-screenshot('http://google.com/')
+screenshot('http://ghub.io/')
   .width(800)
   .height(600)
   .capture(function(err, img) {
