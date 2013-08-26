@@ -90,6 +90,13 @@ Screenshot.prototype.format = function(format) {
  */
 
 Screenshot.prototype.capture = function(fn) {
+  if (!fn) {
+    var self = this;
+    return function(fn) {
+      self.capture(fn);
+    }
+  }
+
   var args = [
     __dirname + '/script/render.js', this.url,
     this._width, this._height, this._timeout, this._format

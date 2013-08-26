@@ -63,10 +63,12 @@ Defaults to `png`.
 After loading the page, make phantomjs wait for `timeout` milliseconds before 
 taking the screenshot. Defaults to `0` ms.
 
-### Screenshot#capture(fn)
+### Screenshot#capture([fn])
 
 Capture the screenshot and call `fn` with the possible error and a `Buffer`
 containing the image.
+
+If no `fn` is provided, a thunk/continuable is returned.
 
 ## Installation
 
