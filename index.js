@@ -20,7 +20,7 @@ function Screenshot(url, opts) {
   this.format('png');
 
   Object.keys(opts || {}).forEach(function (key) {
-    this[key](opts[key]);
+    if (typeof this[key] == 'function') this[key](opts[key]);
   }.bind(this));
 }
 
