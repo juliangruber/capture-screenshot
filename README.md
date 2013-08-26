@@ -3,6 +3,8 @@
 
 Capture screenshots using [phantomjs](http://phantomjs.org/).
 
+[![build status](https://secure.travis-ci.org/re-view/url-to-screenshot.png)](http://travis-ci.org/re-view/url-to-screenshot)
+
 ## Example
 
 Capture a `800x600` screenshot of [google](https://google.com):
