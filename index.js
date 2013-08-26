@@ -7,7 +7,7 @@ function Screenshot(url) {
   this.url = url;
   this.width(1024);
   this.height(768);
-  this.timeout(5000);
+  this.timeout(0);
 }
 
 /**

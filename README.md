@@ -14,7 +14,6 @@ var fs = require('fs');
 screenshot('http://google.com/')
   .width(800)
   .height(600)
-  .timeout(1000)
   .capture(function(err, img) {
     if (err) throw err;
     fs.writeFileSync(__dirname + '/example.png', img);
@@ -49,7 +48,7 @@ Defaults to `png`.
 ### Screenshot#timeout(timeout)
 
 After loading the page, make phantomjs wait for `timeout` milliseconds before 
-taking the screenshot. Defaults to `5000` ms.
+taking the screenshot. Defaults to `0` ms.
 
 ### Screenshot#capture(fn)
 
