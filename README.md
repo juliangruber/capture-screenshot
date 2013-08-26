@@ -27,7 +27,18 @@ screenshot('http://google.com/')
 
 ## API
 
-### Screenshot(url)
+### Screenshot(url[, opts])
+
+Create a screenshot object for `url`.
+
+Use `opts` if passing arguments this way is more convenient than using the api,
+e.g.:
+
+```js
+var s = Screenshot('http://google.com', { width: 800 })
+// is the same as
+var s = Screenshot('http://google.com').width(800);
+```
 
 ### Screenshot#width(width)
 

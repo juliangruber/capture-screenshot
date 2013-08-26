@@ -2,12 +2,26 @@ var exec = require('child_process').exec;
 
 module.exports = Screenshot;
 
-function Screenshot(url) {
-  if (!(this instanceof Screenshot)) return new Screenshot(url);
+/**
+ * Create screenshot object.
+ *
+ * @param {String} url
+ * @param {Object=} opts
+ * @return {Screenshot}
+ */
+
+function Screenshot(url, opts) {
+  if (!(this instanceof Screenshot)) return new Screenshot(url, opts);
   this.url = url;
+
   this.width(1024);
   this.height(768);
   this.timeout(0);
+  this.format('png');
+
+  Object.keys(opts || {}).forEach(function (key) {
+    this[key](opts[key]);
+  }.bind(this));
 }
 
 /**
