@@ -1,16 +1,25 @@
 {
-  "name" : "url-to-screenshot",
-  "description" : "Capture screenshots using phantomjs",
-  "version" : "0.0.0",
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com/re-view/url-to-screenshot.git"
+  "name": "url-to-screenshot",
+  "description": "Capture screenshots using phantomjs",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/re-view/url-to-screenshot.git"
+  },
+  "scripts": {
+    "test": "tape test.js"
   },
   "homepage": "https://github.com/re-view/url-to-screenshot",
-  "main" : "index.js",
-  "dependencies" : {},
-  "devDependencies" : {},
-  "keywords": ["phantomjs", "screenshot", "headless"],
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~1.0.4"
+  },
+  "keywords": [
+    "phantomjs",
+    "screenshot",
+    "headless"
+  ],
   "author": {
     "name": "Julian Gruber",
     "email": "mail@juliangruber.com",
