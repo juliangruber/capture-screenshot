@@ -22,6 +22,8 @@ screenshot('http://google.com/')
   });
 ```
 
+![google](https://raw.github.com/re-view/url-to-screenshot/master/example.png)
+
 ## API
 
 ### Screenshot(url)
