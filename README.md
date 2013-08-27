@@ -1,4 +1,3 @@
-
 # url-to-screenshot
 
 Capture screenshots using [phantomjs](http://phantomjs.org/).
@@ -7,13 +6,13 @@ Capture screenshots using [phantomjs](http://phantomjs.org/).
 
 ## Example
 
-Capture a `800x600` screenshot of [google](https://google.com):
+Capture a `800x600` screenshot of [ghub.io](http://ghub.io):
 
 ```js
 var screenshot = require('url-to-screenshot');
 var fs = require('fs');
 
-screenshot('http://google.com/')
+screenshot('http://ghub.io/')
   .width(800)
   .height(600)
   .capture(function(err, img) {
