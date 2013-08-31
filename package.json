@@ -4,12 +4,12 @@
   "version": "0.4.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/re-view/url-to-screenshot.git"
+    "url": "git://github.com/juliangruber/url-to-screenshot.git"
   },
   "scripts": {
     "test": "tape test.js"
   },
-  "homepage": "https://github.com/re-view/url-to-screenshot",
+  "homepage": "https://github.com/juliangruber/url-to-screenshot",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
