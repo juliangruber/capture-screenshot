@@ -3,7 +3,7 @@
 
 Capture screenshots using [phantomjs](http://phantomjs.org/).
 
-[![build status](https://secure.travis-ci.org/re-view/url-to-screenshot.png)](http://travis-ci.org/re-view/url-to-screenshot)
+[![build status](https://secure.travis-ci.org/juliangruber/url-to-screenshot.png)](http://travis-ci.org/juliangruber/url-to-screenshot)
 
 ## Example
 
@@ -23,7 +23,7 @@ screenshot('http://google.com/')
   });
 ```
 
-![google](https://raw.github.com/re-view/url-to-screenshot/master/example.png)
+![ghub.io](https://raw.github.com/juliangruber/url-to-screenshot/master/example.png)
 
 ## API
 
