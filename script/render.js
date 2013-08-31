@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -37,7 +36,7 @@ page.onPrompt =
 page.onError = noop;
 
 /**
- * Open and render page as base64:image/png.
+ * Open and render page.
  */
 
 page.open(url, function (status) {
