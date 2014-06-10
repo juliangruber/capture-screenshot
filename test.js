@@ -22,7 +22,8 @@ var server = http.createServer(function(req, res) {
       .width(1024)
       .height(768)
       .timeout(100)
-      .format('jpeg');
+      .format('jpeg')
+      .clip();
     t.equal(s._width, 1024);
     t.equal(s._height, 768);
     t.equal(s._timeout, 100);

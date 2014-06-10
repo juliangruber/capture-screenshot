@@ -84,6 +84,17 @@ Screenshot.prototype.format = function(format) {
 };
 
 /**
+ * Clip the screenshot to `width` by `height`.
+ *
+ * @return {Screenshot}
+ */
+
+Screenshot.prototype.clip = function() {
+  this._clip = 'clip';
+  return this;
+};
+
+/**
  * Capture the screenshot and call `fn` with `err` and `img`.
  *
  * @param {Function} fn
@@ -99,7 +110,7 @@ Screenshot.prototype.capture = function(fn) {
 
   var args = [
     __dirname + '/script/render.js', this.url,
-    this._width, this._height, this._timeout, this._format
+    this._width, this._height, this._timeout, this._format, this._clip
   ];
 
   var opts = {
