@@ -91,9 +91,8 @@ Screenshot.prototype.format = function(format) {
  * @return {Screenshot}
  */
 
-Screenshot.prototype.clip = function(clip) {
-  clip = clip.toString();
-  this._clip = clip;
+Screenshot.prototype.clip = function() {
+  this._clip = 'clip';
   return this;
 };
 

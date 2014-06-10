@@ -4,7 +4,7 @@ var fs = require('fs');
 screenshot('http://github.com')
   .width(1024)
   .height(768)
-  .clip(true)
+  .clip()
   .capture(function(err, img) {
     if (err) throw err;
     fs.writeFileSync(__dirname + '/example.png', img);
