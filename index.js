@@ -18,6 +18,7 @@ function Screenshot(url, opts) {
   this.height(768);
   this.timeout(0);
   this.format('png');
+  this.clip(false);
 
   Object.keys(opts || {}).forEach(function (key) {
     if (typeof this[key] == 'function') this[key](opts[key]);
@@ -84,6 +85,18 @@ Screenshot.prototype.format = function(format) {
 };
 
 /**
+ * Set `clip`.
+ *
+ * @param {Boolean} clip
+ * @return {Screenshot}
+ */
+
+Screenshot.prototype.clip = function() {
+  this._clip = 'clip';
+  return this;
+};
+
+/**
  * Capture the screenshot and call `fn` with `err` and `img`.
  *
  * @param {Function} fn
@@ -99,7 +112,7 @@ Screenshot.prototype.capture = function(fn) {
 
   var args = [
     __dirname + '/script/render.js', this.url,
-    this._width, this._height, this._timeout, this._format
+    this._width, this._height, this._timeout, this._format, this._clip
   ];
 
   var opts = {
