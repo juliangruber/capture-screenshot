@@ -1,9 +1,10 @@
 var screenshot = require('./');
 var fs = require('fs');
 
-screenshot('http://ghub.io/')
-  .width(800)
-  .height(600)
+screenshot('http://github.com')
+  .width(1024)
+  .height(768)
+  .clip(true)
   .capture(function(err, img) {
     if (err) throw err;
     fs.writeFileSync(__dirname + '/example.png', img);
