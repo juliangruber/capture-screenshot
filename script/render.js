@@ -29,8 +29,8 @@ page.viewportSize = {
 page.clipRect = {
   top: 0,
   left: 0,
-  width: ('clip' === clip ? width : 0),
-  height: ('clip' === clip ? height : 0)
+  width: ('true' === clip ? width : 0),
+  height: ('true' === clip ? height : 0)
 };
 
 /**

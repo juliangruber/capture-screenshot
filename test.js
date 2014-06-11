@@ -28,6 +28,7 @@ var server = http.createServer(function(req, res) {
     t.equal(s._height, 768);
     t.equal(s._timeout, 100);
     t.equal(s._format, 'JPG');
+    t.equal(s._clip, true);
     t.end();
   });
 
@@ -37,13 +38,15 @@ var server = http.createServer(function(req, res) {
       height: 768,
       timeout: 100,
       format: 'jpeg',
-      url: 'trololo'
+      url: 'trololo',
+      clip: true
     });
     t.equal(s._width, 1024);
     t.equal(s._height, 768);
     t.equal(s._timeout, 100);
     t.equal(s._format, 'JPG');
     t.equal(s.url, url);
+    t.equal(s._clip, true);
     t.end();
   });
 

@@ -18,6 +18,7 @@ function Screenshot(url, opts) {
   this.height(768);
   this.timeout(0);
   this.format('png');
+  this._clip = false;
 
   Object.keys(opts || {}).forEach(function (key) {
     if (typeof this[key] == 'function') this[key](opts[key]);
@@ -90,7 +91,7 @@ Screenshot.prototype.format = function(format) {
  */
 
 Screenshot.prototype.clip = function() {
-  this._clip = 'clip';
+  this._clip = true;
   return this;
 };
 
