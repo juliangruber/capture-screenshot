@@ -24,6 +24,27 @@ screenshot('http://ghub.io/')
 
 ![ghub.io](https://raw.github.com/juliangruber/url-to-screenshot/master/example.png)
 
+## Clipped Example
+
+Capture a clipped `320x320` screenshot of [ghub.io](http://ghub.io):
+
+```js
+var screenshot = require('url-to-screenshot');
+var fs = require('fs');
+
+screenshot('http://ghub.io/')
+  .width(320)
+  .height(320)
+  .clip()
+  .capture(function(err, img) {
+    if (err) throw err;
+    fs.writeFileSync(__dirname + '/example.png', img);
+    console.log('open example.png');
+  });
+```
+
+![ghub.io](https://raw.github.com/juliangruber/url-to-screenshot/master/example-clipped.png)
+
 ## API
 
 ### Screenshot(url[, opts])
