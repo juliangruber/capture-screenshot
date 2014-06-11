@@ -47,6 +47,18 @@ Set the screenshot's width in pixel. Defaults to `1024`.
 
 Set the screenshot's height in pixel. Defaults to `768`.
 
+### Screenshot#clip()
+
+Set the screenshot's [`clipRect`](http://phantomjs.org/api/webpage/property/clip-rect.html) to:
+```js
+{
+  top: 0,
+  left: 0,
+  width: s.width
+  height: s.height
+}
+```
+
 ### Screenshot#format(format)
 
 Set the output format. Supported formats:
