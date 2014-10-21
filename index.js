@@ -152,18 +152,17 @@ Screenshot.prototype.capture = function(fn) {
     maxBuffer: Infinity
   };
   
-  var params = '';
   if(this._ignoreSslErrors === true) {
-  	params = params + ' --ignore-ssl-errors=true ';
+  	args.push('--ignore-ssl-errors=true');
   }
   if(this._sslCertificatesPath != null && this._sslCertificatesPath != '') {
-  	params = params + ' --ssl-certificates-path=' + this._sslCertificatesPath + ' ';
+  	args.push('--ssl-certificates-path=' + this._sslCertificatesPath);
   }
   if(this._sslProtocol != null && this._sslProtocol != '') {
-  	params = params + ' --ssl-protocol=' + this._sslProtocol + ' ';
+  	args.push('--ssl-protocol=' + this._sslProtocol);
   }
 
-  exec('phantomjs ' + params + ' ' + args.join(' '), opts, function (err, stdout) {
+  exec('phantomjs ' + args.join(' '), opts, function (err, stdout) {
     fn(err, stdout && new Buffer(stdout, 'base64'));
   });
 };
