@@ -19,6 +19,8 @@ function Screenshot(url, opts) {
   this.timeout(0);
   this.format('png');
   this.ignoreSslErrors(false);
+  this.sslCertificatesPath(null);
+  this.sslProtocol('sslv3');
 
   Object.keys(opts || {}).forEach(function (key) {
     if (typeof this[key] == 'function') this[key](opts[key]);
@@ -90,7 +92,6 @@ Screenshot.prototype.format = function(format) {
  *
  * @param {Boolean} flag 
  * @return {Screenshot}
- * @todo Find more flexible mechanism
  */
 
 Screenshot.prototype.ignoreSslErrors = function(flag) {
@@ -98,7 +99,35 @@ Screenshot.prototype.ignoreSslErrors = function(flag) {
   return this;
 };
 
+/**
+ * Set ssl-certificates-path params for PhantomJS.
+ *
+ * @param {String} value 
+ * @return {Screenshot}
+ */
 
+Screenshot.prototype.sslCertificatesPath = function(value) {
+  this._sslCertificatesPath = value;
+  return this;
+};
+
+/**
+ * Set ssl-protocol params for PhantomJS.
+ *
+ * Supported values:
+ * - sslv3
+ * - sslv2
+ * - tlsv1
+ * - any
+ *
+ * @param {String} value 
+ * @return {Screenshot}
+ */
+
+Screenshot.prototype.sslProtocol = function(value) {
+  this._sslProtocol = value;
+  return this;
+};
 
 /**
  * Capture the screenshot and call `fn` with `err` and `img`.
@@ -124,8 +153,14 @@ Screenshot.prototype.capture = function(fn) {
   };
   
   var params = '';
-  if(!this._ignoreSslErrors) {
-  	params = params + ' --ignore-ssl-errors=true '
+  if(this._ignoreSslErrors === true) {
+  	params = params + ' --ignore-ssl-errors=true ';
+  }
+  if(this._sslCertificatesPath != null && this._sslCertificatesPath != '') {
+  	params = params + ' --ssl-certificates-path=' + this._sslCertificatesPath + ' ';
+  }
+  if(this._sslProtocol != null && this._sslProtocol != '') {
+  	params = params + ' --ssl-protocol=' + this._sslProtocol + ' ';
   }
 
   exec('phantomjs ' + params + ' ' + args.join(' '), opts, function (err, stdout) {
