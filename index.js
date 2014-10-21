@@ -100,7 +100,7 @@ Screenshot.prototype.ignoreSslErrors = function(flag) {
 };
 
 /**
- * Set ssl-certificates-path params for PhantomJS.
+ * Set --ssl-certificates-path params for PhantomJS.
  *
  * @param {String} value 
  * @return {Screenshot}
@@ -112,7 +112,7 @@ Screenshot.prototype.sslCertificatesPath = function(value) {
 };
 
 /**
- * Set ssl-protocol params for PhantomJS.
+ * Set --ssl-protocol params for PhantomJS.
  *
  * Supported values:
  * - sslv3

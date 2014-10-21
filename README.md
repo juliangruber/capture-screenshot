@@ -72,6 +72,27 @@ If no `fn` is provided, a thunk/continuable is returned.
 If the page has a transparent background, it will be set to `white` before
 capturing.
 
+### Screenshot#ignoreSslErrors(true|false)
+
+Set the params '--ignore-ssl-errors' value
+
+### Screenshot#sslCertificatesPath(values)
+
+Set the params '--ssl-certificates-path' value
+
+### Screenshot#sslProtocol(values)
+
+Set the params '--ssl-protocol' value.
+
+Supported values:
+* sslv3
+* sslv2
+* tlsv1
+* any
+ 
+Default value is sslv3
+
+
 ## Installation
 
 Make sure you have a working installation of 
