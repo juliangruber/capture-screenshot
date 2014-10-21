@@ -18,6 +18,7 @@ function Screenshot(url, opts) {
   this.height(768);
   this.timeout(0);
   this.format('png');
+  this.ignoreSslErrors(false);
 
   Object.keys(opts || {}).forEach(function (key) {
     if (typeof this[key] == 'function') this[key](opts[key]);
@@ -83,6 +84,22 @@ Screenshot.prototype.format = function(format) {
   return this;
 };
 
+
+/**
+ * Set --ignore-ssl-errors params for PhantomJS.
+ *
+ * @param {Boolean} flag 
+ * @return {Screenshot}
+ * @todo Find more flexible mechanism
+ */
+
+Screenshot.prototype.ignoreSslErrors = function(flag) {
+  this._ignoreSslErrors = flag;
+  return this;
+};
+
+
+
 /**
  * Capture the screenshot and call `fn` with `err` and `img`.
  *
@@ -105,8 +122,13 @@ Screenshot.prototype.capture = function(fn) {
   var opts = {
     maxBuffer: Infinity
   };
+  
+  var params = '';
+  if(!this._ignoreSslErrors) {
+  	params = params + ' --ignore-ssl-errors=true '
+  }
 
-  exec('phantomjs ' + args.join(' '), opts, function (err, stdout) {
+  exec('phantomjs ' + params + ' ' + args.join(' '), opts, function (err, stdout) {
     fn(err, stdout && new Buffer(stdout, 'base64'));
   });
 };
