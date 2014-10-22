@@ -149,13 +149,13 @@ Screenshot.prototype.capture = function(fn) {
   ];
   
   if (this._ignoreSslErrors) {
-  	args.push('--ignore-ssl-errors');
+    args.push('--ignore-ssl-errors');
   }
   if (this._sslCertificatesPath) {
-  	args.push('--ssl-certificates-path=' + this._sslCertificatesPath);
+    args.push('--ssl-certificates-path=' + this._sslCertificatesPath);
   }
   if (this._sslProtocol) {
-  	args.push('--ssl-protocol=' + this._sslProtocol);
+    args.push('--ssl-protocol=' + this._sslProtocol);
   }
 
   var opts = {
