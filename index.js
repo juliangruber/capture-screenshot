@@ -88,14 +88,13 @@ Screenshot.prototype.format = function(format) {
 
 
 /**
- * Set --ignore-ssl-errors params for PhantomJS.
+ * Ignore SSL Errors.
  *
- * @param {Boolean} flag 
  * @return {Screenshot}
  */
 
-Screenshot.prototype.ignoreSslErrors = function(flag) {
-  this._ignoreSslErrors = flag;
+Screenshot.prototype.ignoreSslErrors = function() {
+  this._ignoreSslErrors = true;
   return this;
 };
 
