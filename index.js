@@ -99,32 +99,33 @@ Screenshot.prototype.ignoreSslErrors = function() {
 };
 
 /**
- * Set --ssl-certificates-path params for PhantomJS.
+ * Set the SSL certificates path for PhantomJS.
  *
- * @param {String} value 
+ * @param {String} path
  * @return {Screenshot}
  */
 
-Screenshot.prototype.sslCertificatesPath = function(value) {
-  this._sslCertificatesPath = value;
+Screenshot.prototype.sslCertificatesPath = function(path) {
+  this._sslCertificatesPath = path;
   return this;
 };
 
 /**
- * Set --ssl-protocol params for PhantomJS.
+ * Set the SSL protocol to be used.
  *
- * Supported values:
- * - sslv3
- * - sslv2
- * - tlsv1
- * - any
+ * Supported protocols:
+ * 
+ *   - sslv3
+ *   - sslv2
+ *   - tlsv1
+ *   - any
  *
- * @param {String} value 
+ * @param {String} protocol
  * @return {Screenshot}
  */
 
-Screenshot.prototype.sslProtocol = function(value) {
-  this._sslProtocol = value;
+Screenshot.prototype.sslProtocol = function(protocol) {
+  this._sslProtocol = protocol;
   return this;
 };
 
@@ -146,20 +147,20 @@ Screenshot.prototype.capture = function(fn) {
     __dirname + '/script/render.js', this.url,
     this._width, this._height, this._timeout, this._format
   ];
+  
+  if (this._ignoreSslErrors) {
+  	args.push('--ignore-ssl-errors');
+  }
+  if (this._sslCertificatesPath) {
+  	args.push('--ssl-certificates-path=' + this._sslCertificatesPath);
+  }
+  if (this._sslProtocol) {
+  	args.push('--ssl-protocol=' + this._sslProtocol);
+  }
 
   var opts = {
     maxBuffer: Infinity
   };
-  
-  if(this._ignoreSslErrors === true) {
-  	args.push('--ignore-ssl-errors=true');
-  }
-  if(this._sslCertificatesPath != null && this._sslCertificatesPath != '') {
-  	args.push('--ssl-certificates-path=' + this._sslCertificatesPath);
-  }
-  if(this._sslProtocol != null && this._sslProtocol != '') {
-  	args.push('--ssl-protocol=' + this._sslProtocol);
-  }
 
   exec('phantomjs ' + args.join(' '), opts, function (err, stdout) {
     fn(err, stdout && new Buffer(stdout, 'base64'));
