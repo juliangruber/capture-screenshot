@@ -21,6 +21,7 @@ function Screenshot(url, opts) {
   this.ignoreSslErrors(false);
   this.sslCertificatesPath(null);
   this.sslProtocol('sslv3');
+  this.clip(false);
 
   Object.keys(opts || {}).forEach(function (key) {
     if (typeof this[key] == 'function') this[key](opts[key]);
@@ -130,6 +131,18 @@ Screenshot.prototype.sslProtocol = function(protocol) {
 };
 
 /**
+ * Clip the screenshot to `width` by `height`.
+ *
+ * @return {Screenshot}
+ */
+
+Screenshot.prototype.clip = function(clip) {
+  if (typeof clip == 'undefined') clip = true;
+  this._clip = clip;
+  return this;
+};
+
+/**
  * Capture the screenshot and call `fn` with `err` and `img`.
  *
  * @param {Function} fn
@@ -145,7 +158,7 @@ Screenshot.prototype.capture = function(fn) {
 
   var args = [
     __dirname + '/script/render.js', this.url,
-    this._width, this._height, this._timeout, this._format
+    this._width, this._height, this._timeout, this._format, this._clip
   ];
   
   if (this._ignoreSslErrors) {
