@@ -24,6 +24,27 @@ screenshot('http://ghub.io/')
 
 ![ghub.io](https://raw.github.com/juliangruber/url-to-screenshot/master/example.png)
 
+## Clipped Example
+
+Capture a clipped `320x320` screenshot of [ghub.io](http://ghub.io):
+
+```js
+var screenshot = require('url-to-screenshot');
+var fs = require('fs');
+
+screenshot('http://ghub.io/')
+  .width(320)
+  .height(320)
+  .clip()
+  .capture(function(err, img) {
+    if (err) throw err;
+    fs.writeFileSync(__dirname + '/example.png', img);
+    console.log('open example.png');
+  });
+```
+
+![ghub.io](https://raw.github.com/juliangruber/url-to-screenshot/master/example-clipped.png)
+
 ## API
 
 ### Screenshot(url[, opts])
@@ -46,6 +67,18 @@ Set the screenshot's width in pixel. Defaults to `1024`.
 ### Screenshot#height(height)
 
 Set the screenshot's height in pixel. Defaults to `768`.
+
+### Screenshot#clip()
+
+Set the screenshot's [`clipRect`](http://phantomjs.org/api/webpage/property/clip-rect.html) to:
+```js
+{
+  top: 0,
+  left: 0,
+  width: s.width
+  height: s.height
+}
+```
 
 ### Screenshot#format(format)
 

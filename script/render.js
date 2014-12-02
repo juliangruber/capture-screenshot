@@ -15,6 +15,7 @@ var width = args[2];
 var height = args[3];
 var timeout = args[4];
 var format = args[5];
+var clip = args[6];
 
 /**
  * Initialize page.
@@ -24,6 +25,12 @@ var page = webpage.create();
 page.viewportSize = {
   width: width,
   height: height
+};
+page.clipRect = {
+  top: 0,
+  left: 0,
+  width: ('true' === clip ? width : 0),
+  height: ('true' === clip ? height : 0)
 };
 
 /**
