@@ -13,7 +13,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "tape": "~4.3.0"
+    "tape": "~4.4.0"
   },
   "keywords": [
     "phantomjs",
