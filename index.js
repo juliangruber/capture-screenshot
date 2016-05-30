@@ -72,7 +72,7 @@ Screenshot.prototype.timeout = function(timeout) {
  *   - jpg, jpeg
  *   - png
  *   - gif
- *   
+ *
  * @param {String} format
  * @throws {TypeError}
  * @return {Screenshot}
@@ -115,7 +115,7 @@ Screenshot.prototype.sslCertificatesPath = function(path) {
  * Set the SSL protocol to be used.
  *
  * Supported protocols:
- * 
+ *
  *   - sslv3
  *   - sslv2
  *   - tlsv1
@@ -160,23 +160,23 @@ Screenshot.prototype.capture = function(fn) {
     __dirname + '/script/render.js', this.url,
     this._width, this._height, this._timeout, this._format, this._clip
   ];
-  
+
+  var cliOpts = [];
   if (this._ignoreSslErrors) {
-    args.push('--ignore-ssl-errors');
+    cliOpts.push('--ignore-ssl-errors=true');
   }
   if (this._sslCertificatesPath) {
-    args.push('--ssl-certificates-path=' + this._sslCertificatesPath);
+    cliOpts.push('--ssl-certificates-path=' + this._sslCertificatesPath);
   }
   if (this._sslProtocol) {
-    args.push('--ssl-protocol=' + this._sslProtocol);
+    cliOpts.push('--ssl-protocol=' + this._sslProtocol);
   }
 
   var opts = {
     maxBuffer: Infinity
   };
 
-  exec('phantomjs ' + args.join(' '), opts, function (err, stdout) {
+  exec('phantomjs ' + cliOpts.join(' ') + args.join(' '), opts, function (err, stdout) {
     fn(err, stdout && new Buffer(stdout, 'base64'));
   });
 };
-
