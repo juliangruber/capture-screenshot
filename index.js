@@ -176,7 +176,7 @@ Screenshot.prototype.capture = function(fn) {
     maxBuffer: Infinity
   };
 
-  exec('phantomjs ' + cliOpts.join(' ') + args.join(' '), opts, function (err, stdout) {
+  exec('phantomjs ' + cliOpts.join(' ') + ' ' + args.join(' '), opts, function (err, stdout) {
     fn(err, stdout && new Buffer(stdout, 'base64'));
   });
 };
