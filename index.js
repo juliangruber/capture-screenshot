@@ -157,13 +157,10 @@ Screenshot.prototype.capture = function (fn) {
     };
   }
 
-  var args = [
-    join(__dirname, '/script/render.js'), this.url,
-    this._width, this._height, this._timeout, this._format, this._clip
-  ];
+  var args = [];
 
   if (this._ignoreSslErrors) {
-    args.push('--ignore-ssl-errors');
+    args.push('--ignore-ssl-errors=true');
   }
   if (this._sslCertificatesPath) {
     args.push('--ssl-certificates-path=' + this._sslCertificatesPath);
@@ -171,6 +168,9 @@ Screenshot.prototype.capture = function (fn) {
   if (this._sslProtocol) {
     args.push('--ssl-protocol=' + this._sslProtocol);
   }
+
+  args.push(__dirname + '/script/render.js', this.url,
+  this._width, this._height, this._timeout, this._format, this._clip);
 
   var opts = {
     maxBuffer: Infinity
@@ -180,4 +180,3 @@ Screenshot.prototype.capture = function (fn) {
     fn(err, stdout && new Buffer(stdout, 'base64'));
   });
 };
-
