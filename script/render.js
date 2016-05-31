@@ -1,10 +1,12 @@
+/*global phantom*/
+
 /**
  * Module dependencies.
  */
 
 var webpage = require('webpage');
 var args = require('system').args;
-var noop = function() {};
+var noop = function () {};
 
 /**
  * Script arguments.
@@ -29,8 +31,8 @@ page.viewportSize = {
 page.clipRect = {
   top: 0,
   left: 0,
-  width: ('true' === clip ? width : 0),
-  height: ('true' === clip ? height : 0)
+  width: (clip === 'true' ? width : 0),
+  height: (clip === 'true' ? height : 0)
 };
 
 /**
@@ -38,7 +40,7 @@ page.clipRect = {
  */
 
 page.onConsoleMessage =
-page.onConfirm = 
+page.onConfirm =
 page.onPrompt =
 page.onError = noop;
 
@@ -49,7 +51,7 @@ page.onError = noop;
 page.open(url, function (status) {
   if (status !== 'success') throw new Error('Unable to load');
   window.setTimeout(function () {
-    page.evaluate(function() {
+    page.evaluate(function () {
       if (!document.body.style.background) {
         document.body.style.backgroundColor = 'white';
       }

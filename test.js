@@ -2,22 +2,22 @@ var test = require('tape');
 var Screenshot = require('./');
 var http = require('http');
 
-var server = http.createServer(function(req, res) {
+var server = http.createServer(function (req, res) {
   res.end('ohai!');
-}).listen(function() {
+}).listen(function () {
   var url = 'http://localhost:' + server.address().port;
 
-  test('screenshot', function(t) {
+  test('screenshot', function (t) {
     t.plan(3);
     Screenshot(url)
-      .capture(function(err, pic) {
+      .capture(function (err, pic) {
         t.error(err);
         t.ok(pic);
         t.ok(Buffer.isBuffer(pic));
       });
   });
 
-  test('custom args', function(t) {
+  test('custom args', function (t) {
     var s = Screenshot(url)
       .width(1024)
       .height(768)
@@ -32,7 +32,7 @@ var server = http.createServer(function(req, res) {
     t.end();
   });
 
-  test('obj', function(t) {
+  test('obj', function (t) {
     var s = Screenshot(url, {
       width: 1024,
       height: 768,
@@ -50,10 +50,10 @@ var server = http.createServer(function(req, res) {
     t.end();
   });
 
-  test('generator', function(t) {
+  test('generator', function (t) {
     t.plan(3);
     Screenshot(url)
-      .capture()(function(err, pic) {
+      .capture()(function (err, pic) {
         t.error(err);
         t.ok(pic);
         t.ok(Buffer.isBuffer(pic));

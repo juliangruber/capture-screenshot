@@ -1,4 +1,5 @@
 var exec = require('child_process').exec;
+var join = require('path').join;
 
 module.exports = Screenshot;
 
@@ -10,7 +11,7 @@ module.exports = Screenshot;
  * @return {Screenshot}
  */
 
-function Screenshot(url, opts) {
+function Screenshot (url, opts) {
   if (!(this instanceof Screenshot)) return new Screenshot(url, opts);
   this.url = url;
 
@@ -24,7 +25,7 @@ function Screenshot(url, opts) {
   this.clip(false);
 
   Object.keys(opts || {}).forEach(function (key) {
-    if (typeof this[key] == 'function') this[key](opts[key]);
+    if (typeof this[key] === 'function') this[key](opts[key]);
   }.bind(this));
 }
 
@@ -35,7 +36,7 @@ function Screenshot(url, opts) {
  * @return {Screenshot}
  */
 
-Screenshot.prototype.width = function(width) {
+Screenshot.prototype.width = function (width) {
   this._width = width;
   return this;
 };
@@ -47,7 +48,7 @@ Screenshot.prototype.width = function(width) {
  * @return {Screenshot}
  */
 
-Screenshot.prototype.height = function(height) {
+Screenshot.prototype.height = function (height) {
   this._height = height;
   return this;
 };
@@ -60,7 +61,7 @@ Screenshot.prototype.height = function(height) {
  * @todo Find more flexible mechanism
  */
 
-Screenshot.prototype.timeout = function(timeout) {
+Screenshot.prototype.timeout = function (timeout) {
   this._timeout = timeout;
   return this;
 };
@@ -72,21 +73,21 @@ Screenshot.prototype.timeout = function(timeout) {
  *   - jpg, jpeg
  *   - png
  *   - gif
- *   
+ *
  * @param {String} format
  * @throws {TypeError}
  * @return {Screenshot}
  */
 
-Screenshot.prototype.format = function(format) {
+Screenshot.prototype.format = function (format) {
   format = format.toUpperCase();
-  if (format == 'JPEG') format = 'JPG';
-  if (['JPG', 'PNG', 'GIF'].indexOf(format) == -1)
+  if (format === 'JPEG') format = 'JPG';
+  if (['JPG', 'PNG', 'GIF'].indexOf(format) === -1) {
     throw new TypeError('unknown format');
+  }
   this._format = format;
   return this;
 };
-
 
 /**
  * Ignore SSL Errors.
@@ -94,7 +95,7 @@ Screenshot.prototype.format = function(format) {
  * @return {Screenshot}
  */
 
-Screenshot.prototype.ignoreSslErrors = function() {
+Screenshot.prototype.ignoreSslErrors = function () {
   this._ignoreSslErrors = true;
   return this;
 };
@@ -106,7 +107,7 @@ Screenshot.prototype.ignoreSslErrors = function() {
  * @return {Screenshot}
  */
 
-Screenshot.prototype.sslCertificatesPath = function(path) {
+Screenshot.prototype.sslCertificatesPath = function (path) {
   this._sslCertificatesPath = path;
   return this;
 };
@@ -115,7 +116,7 @@ Screenshot.prototype.sslCertificatesPath = function(path) {
  * Set the SSL protocol to be used.
  *
  * Supported protocols:
- * 
+ *
  *   - sslv3
  *   - sslv2
  *   - tlsv1
@@ -125,7 +126,7 @@ Screenshot.prototype.sslCertificatesPath = function(path) {
  * @return {Screenshot}
  */
 
-Screenshot.prototype.sslProtocol = function(protocol) {
+Screenshot.prototype.sslProtocol = function (protocol) {
   this._sslProtocol = protocol;
   return this;
 };
@@ -136,8 +137,8 @@ Screenshot.prototype.sslProtocol = function(protocol) {
  * @return {Screenshot}
  */
 
-Screenshot.prototype.clip = function(clip) {
-  if (typeof clip == 'undefined') clip = true;
+Screenshot.prototype.clip = function (clip) {
+  if (typeof clip === 'undefined') clip = true;
   this._clip = clip;
   return this;
 };
@@ -148,19 +149,19 @@ Screenshot.prototype.clip = function(clip) {
  * @param {Function} fn
  */
 
-Screenshot.prototype.capture = function(fn) {
+Screenshot.prototype.capture = function (fn) {
   if (!fn) {
     var self = this;
-    return function(fn) {
+    return function (fn) {
       self.capture(fn);
-    }
+    };
   }
 
   var args = [
-    __dirname + '/script/render.js', this.url,
+    join(__dirname, '/script/render.js'), this.url,
     this._width, this._height, this._timeout, this._format, this._clip
   ];
-  
+
   if (this._ignoreSslErrors) {
     args.push('--ignore-ssl-errors');
   }
