@@ -156,7 +156,7 @@ Screenshot.prototype.capture = function(fn) {
     }
   }
 
-  var args = []
+  var args = [];
 
   if (this._ignoreSslErrors) {
     args.push('--ignore-ssl-errors=true');
