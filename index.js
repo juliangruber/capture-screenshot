@@ -169,7 +169,7 @@ Screenshot.prototype.capture = function (fn) {
     args.push('--ssl-protocol=' + this._sslProtocol);
   }
 
-  args.push(__dirname + '/script/render.js', this.url,
+  args.push(join(__dirname, '/script/render.js'), this.url,
   this._width, this._height, this._timeout, this._format, this._clip);
 
   var opts = {
