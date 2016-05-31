@@ -156,27 +156,26 @@ Screenshot.prototype.capture = function(fn) {
     }
   }
 
-  var args = [
-    __dirname + '/script/render.js', this.url,
-    this._width, this._height, this._timeout, this._format, this._clip
-  ];
+  var args = []
 
-  var cliOpts = [];
   if (this._ignoreSslErrors) {
-    cliOpts.push('--ignore-ssl-errors=true');
+    args.push('--ignore-ssl-errors=true');
   }
   if (this._sslCertificatesPath) {
-    cliOpts.push('--ssl-certificates-path=' + this._sslCertificatesPath);
+    args.push('--ssl-certificates-path=' + this._sslCertificatesPath);
   }
   if (this._sslProtocol) {
-    cliOpts.push('--ssl-protocol=' + this._sslProtocol);
+    args.push('--ssl-protocol=' + this._sslProtocol);
   }
+
+  args.push(__dirname + '/script/render.js', this.url,
+  this._width, this._height, this._timeout, this._format, this._clip);
 
   var opts = {
     maxBuffer: Infinity
   };
 
-  exec('phantomjs ' + cliOpts.join(' ') + ' ' + args.join(' '), opts, function (err, stdout) {
+  exec('phantomjs ' + args.join(' '), opts, function (err, stdout) {
     fn(err, stdout && new Buffer(stdout, 'base64'));
   });
 };
