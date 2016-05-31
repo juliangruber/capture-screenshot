@@ -157,14 +157,7 @@ Screenshot.prototype.capture = function (fn) {
     };
   }
 
-<<<<<<< HEAD
   var args = [];
-=======
-  var args = [
-    join(__dirname, '/script/render.js'), this.url,
-    this._width, this._height, this._timeout, this._format, this._clip
-  ];
->>>>>>> upstream/master
 
   if (this._ignoreSslErrors) {
     args.push('--ignore-ssl-errors=true');
