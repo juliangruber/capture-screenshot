@@ -1,7 +1,7 @@
 {
   "name": "url-to-screenshot",
   "description": "Capture screenshots using phantomjs",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/juliangruber/url-to-screenshot.git"
