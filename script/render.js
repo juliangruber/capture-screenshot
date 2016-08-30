@@ -49,7 +49,10 @@ page.onError = noop;
  */
 
 page.open(url, function (status) {
-  if (status !== 'success') throw new Error('Unable to load');
+  if (status !== 'success') {
+    console.error('Unable to load');
+    phantom.exit();
+  }
   window.setTimeout(function () {
     page.evaluate(function () {
       if (!document.body.style.background) {

@@ -177,6 +177,7 @@ Screenshot.prototype.capture = function (fn) {
   };
 
   exec('phantomjs ' + args.join(' '), opts, function (err, stdout) {
+    if (/Unable to load/.test(stdout)) return fn(new Error(stdout))
     fn(err, stdout && new Buffer(stdout, 'base64'));
   });
 };
