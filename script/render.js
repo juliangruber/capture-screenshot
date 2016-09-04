@@ -1,4 +1,4 @@
-/*global phantom*/
+/* global phantom */
 
 /**
  * Module dependencies.
