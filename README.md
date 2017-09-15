@@ -34,7 +34,7 @@ capture({ url: 'https://twitter.com/' })
 
 ### capture({ url, browsers = ['electron', 'phantomjs'], width = 1024, height = 768, format = 'png' })
 
-Capture a screenshot of `url`, returns a `Promise` which resolves with a buffer.
+Capture a screenshot of `url`, returns a `Promise` which resolves with an Object ob Buffers.
 
 Options:
 
