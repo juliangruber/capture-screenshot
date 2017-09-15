@@ -1,0 +1,17 @@
+{
+  "name": "capture-screenshot",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": "juliangruber/capture-screenshot",
+  "description": "Capture screenshots in multiple browsers headlessly",
+  "scripts": {
+    "test": "prettier-standard '**/*.js' && node example"
+  },
+  "devDependencies": {
+    "prettier-standard": "^6.0.0"
+  },
+  "dependencies": {
+    "capture-electron": "^2.1.1",
+    "capture-phantomjs": "^1.0.1"
+  }
+}
