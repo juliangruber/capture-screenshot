@@ -26,8 +26,9 @@ capture({ url: 'https://twitter.com/' })
   })
 ```
 
-<img alt="electron" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-electron.png" width=50% />
-<img alt="phantomjs" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-phantomjs.png" width=50% />
+| Electron | PhantomJS |
+|---|---|
+| <img alt="electron" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-electron.png" width=400 /> | <img alt="phantomjs" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-phantomjs.png" width=400 /> |
 
 ## API
 
