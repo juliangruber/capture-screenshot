@@ -50,6 +50,11 @@ Options:
 $ npm install capture-screenshot
 ```
 
+## Related projects
+
+- __[capture-electron](https://github.com/juliangruber/capture-electron)__ &mdash; Capture screenshots using Electron
+- __[capture-phantomjs](https://github.com/juliangruber/capture-phantomjs)__ &mdash; Capture screenshots using PhantomJS
+
 ## License
 
 MIT
