@@ -5,12 +5,14 @@
   "repository": "juliangruber/capture-screenshot",
   "description": "Capture screenshots in multiple browsers headlessly",
   "scripts": {
-    "test": "prettier-standard '**/*.js' && node example"
+    "test": "prettier-standard '**/*.js' && standard && node example"
   },
   "devDependencies": {
-    "prettier-standard": "^6.0.0"
+    "prettier-standard": "^6.0.0",
+    "standard": "^10.0.3"
   },
   "dependencies": {
+    "capture-chrome": "^1.0.3",
     "capture-electron": "^2.1.1",
     "capture-phantomjs": "^1.0.1"
   }

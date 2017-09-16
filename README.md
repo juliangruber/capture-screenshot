@@ -6,14 +6,14 @@ Capture screenshots in multiple browsers.
 
 ## Browsers
 
+- [X] Chrome Headless
 - [X] Electron
 - [X] PhantomJS
-- [ ] Chrome Headless
 - [ ] Firefox Headless
 
 ## Usage
 
-Capture `1024x768` screenshots of `https://twitter.com/` in Electron and PhantomJS:
+Capture `1024x768` screenshots of `https://twitter.com/` in Chrome, Electron and PhantomJS:
 
 ```js
 const capture = require('capture-screenshot')
@@ -21,20 +21,21 @@ const fs = require('fs')
 
 capture({ url: 'https://twitter.com/' })
   .then(imgs => {
+    fs.writeFileSync('chrome.png', imgs.chrome)
     fs.writeFileSync('electron.png', imgs.electron)
     fs.writeFileSync('phantomjs.png', imgs.phantomjs)
   })
 ```
 
-| Electron | PhantomJS |
-|---|---|
-| <img alt="electron" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-electron.png" width=400 /> | <img alt="phantomjs" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-phantomjs.png" width=400 /> |
+| Chrome | Electron | PhantomJS |
+|---|---|--|
+| <img alt="chrome" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-chrome.png" width=300 />| <img alt="electron" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-electron.png" width=300 /> | <img alt="phantomjs" src="https://raw.github.com/juliangruber/capture-screenshot/master/example-phantomjs.png" width=300 /> |
 
 ## API
 
-### capture({ url, browsers = ['electron', 'phantomjs'], width = 1024, height = 768, format = 'png' })
+### capture({ url, browsers = ['chrome', 'electron', 'phantomjs'], width = 1024, height = 768 })
 
-Capture a screenshot of `url`, returns a `Promise` which resolves with an Object ob Buffers.
+Capture a screenshot of `url`, returns a `Promise` which resolves with an Object of Buffers.
 
 Options:
 
@@ -42,7 +43,6 @@ Options:
 - `browsers` The browsers to test
 - `width` Viewport width
 - `height` Viewport height
-- `format` File format (`png`, `jpg`)
 
 ## Installation
 
@@ -59,6 +59,7 @@ installed automatically.
 
 ## Related projects
 
+- __[capture-phantomjs](https://github.com/juliangruber/capture-chrome)__ &mdash; Capture screenshots using Chrome
 - __[capture-electron](https://github.com/juliangruber/capture-electron)__ &mdash; Capture screenshots using Electron
 - __[capture-phantomjs](https://github.com/juliangruber/capture-phantomjs)__ &mdash; Capture screenshots using PhantomJS
 

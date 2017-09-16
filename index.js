@@ -1,6 +1,7 @@
 'use strict'
 
 const capture = {
+  chrome: require('capture-chrome'),
   electron: require('capture-electron'),
   phantomjs: require('capture-phantomjs')
 }
