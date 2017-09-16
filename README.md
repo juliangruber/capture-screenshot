@@ -59,7 +59,7 @@ installed automatically.
 
 ## Related projects
 
-- __[capture-phantomjs](https://github.com/juliangruber/capture-chrome)__ &mdash; Capture screenshots using Chrome
+- __[capture-chrome](https://github.com/juliangruber/capture-chrome)__ &mdash; Capture screenshots using Chrome
 - __[capture-electron](https://github.com/juliangruber/capture-electron)__ &mdash; Capture screenshots using Electron
 - __[capture-phantomjs](https://github.com/juliangruber/capture-phantomjs)__ &mdash; Capture screenshots using PhantomJS
 
