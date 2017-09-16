@@ -1,6 +1,6 @@
 {
   "name": "capture-screenshot",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "license": "MIT",
   "repository": "juliangruber/capture-screenshot",
   "description": "Capture screenshots in multiple browsers headlessly",
