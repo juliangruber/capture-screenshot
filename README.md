@@ -1,6 +1,6 @@
 # capture-screenshot
 
-Capture screenshots in multiple browsers.
+Capture screenshots in multiple browsers. One module, to rule them all!
 
 [![build status](https://secure.travis-ci.org/juliangruber/capture-screenshot.png)](http://travis-ci.org/juliangruber/capture-screenshot)
 
