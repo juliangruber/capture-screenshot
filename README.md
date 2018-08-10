@@ -2,7 +2,7 @@
 
 Capture screenshots in multiple browsers. One module, to rule them all!
 
-[![build status](https://secure.travis-ci.org/juliangruber/capture-screenshot.png)](http://travis-ci.org/juliangruber/capture-screenshot)
+[![build status](https://secure.travis-ci.org/juliangruber/capture-screenshot.png)](http://travis-ci.org/juliangruber/capture-screenshot) [![Greenkeeper badge](https://badges.greenkeeper.io/juliangruber/capture-screenshot.svg)](https://greenkeeper.io/)
 
 ## Browsers
 
