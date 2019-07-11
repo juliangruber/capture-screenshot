@@ -8,12 +8,12 @@
     "test": "prettier-standard '**/*.js' && standard && node example"
   },
   "devDependencies": {
-    "prettier-standard": "^6.0.0",
-    "standard": "^10.0.3"
+    "prettier-standard": "^9.1.1",
+    "standard": "^11.0.1"
   },
   "dependencies": {
     "capture-chrome": "^1.0.4",
-    "capture-electron": "^2.1.7",
-    "capture-phantomjs": "^1.3.2"
+    "capture-electron": "^3.0.1",
+    "capture-phantomjs": "^1.4.3"
   }
 }
