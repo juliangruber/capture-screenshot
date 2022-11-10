@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "capture-chrome": "^1.0.4",
-    "capture-electron": "^3.0.1",
+    "capture-electron": "^4.0.3",
     "capture-phantomjs": "^1.4.3"
   }
 }
